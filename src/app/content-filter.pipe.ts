@@ -1,11 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import {DiveLogEntry} from "./dive-log-entry";
 
 @Pipe({
   name: 'contentFilter'
 })
 export class ContentFilterPipe implements PipeTransform {
 
-  transform(value: any[], searchFor: string) : any[] {
+  transform(value: DiveLogEntry[], searchFor: string) : DiveLogEntry[] {
     if (!searchFor) return value;
     searchFor = searchFor.toLowerCase();
     return value.filter(dive =>
