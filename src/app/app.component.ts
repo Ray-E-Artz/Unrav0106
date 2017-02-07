@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DiveLogEntry } from './dive-log-entry';
 
 @Component({
   selector: 'app-root',
@@ -6,28 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public dives = [];
+  public dives: DiveLogEntry[] = [];
   private index = 0;
 
-  private stockDives = [
-    {
-      site: 'Abu Gotta Ramada',
-      location: 'Hurghada, Egypt',
-      depth: 72,
-      time: 54
-    },
-    {
-      site: 'Ponte Mahoon',
-      location: 'Maehbourg, Mauritius',
-      depth: 54,
-      time: 38
-    },
-    {
-      site: 'Molnar Cave',
-      location: 'Budapest, Hungary',
-      depth: 98,
-      time: 62
-    }];
+  private stockDives = DiveLogEntry.stockDives;
 
   public enableAdd() {
     return this.index < this.stockDives.length;
